@@ -11,15 +11,15 @@ def clean_export(result):
         for url, data in result.items():
             clean_url = url.lstrip('/')
             if data['method'] == 'JSON':
-                print(clean_url + '\t' + json.dumps(populate(data['params'])) + '\n')
+                print(clean_url + '\t' + json.dumps(populate(data['params'])))
             else:
                 query_string = create_query_string(data['params'])
                 if '?' in clean_url:
                     query_string = query_string.replace('?', '&', 1)
                 if data['method'] == 'GET':
-                    print(clean_url + query_string + '\n')
+                    print(clean_url + query_string)
                 elif data['method'] == 'POST':
-                   print(clean_url + '\t' + query_string + '\n')
+                   print(clean_url + '\t' + query_string)
 
 def json_export(result):
     """
