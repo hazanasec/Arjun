@@ -26,6 +26,17 @@
 
 ![demo](https://i.ibb.co/q5F8qPY/Screenshot-2020-12-06-21-54-52.png)
 
+### What's changed with this fork?
+
+Added an `-oC` flag to output clean URLs directly to the terimal:
+
+![example1](https://i.imgur.com/q9G9MnD.png)
+
+This is useful for piping into other tools:
+
+![example2](https://i.imgur.com/CjSZJYv.png)
+
+
 ### What's Arjun?
 
 Arjun can find query parameters for URL enpoints. If you don't get what that means, it's okay, read along.
