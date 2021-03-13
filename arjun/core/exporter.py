@@ -1,3 +1,4 @@
+
 import json
 import requests
 
@@ -58,11 +59,10 @@ def text_export(result):
                     query_string = query_string.replace('?', '&', 1)
                 if data['method'] == 'GET':
                     text_file.write(clean_url + query_string + '\n')
-                    # print(clean_url + query_string + '\n')
                 elif data['method'] == 'POST':
                     text_file.write(clean_url + '\t' + query_string + '\n')
 
-def exporter(result,args):
+def exporter(result):
     """
     main exporter function that calls other export functions
     """

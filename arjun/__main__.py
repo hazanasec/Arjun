@@ -188,7 +188,7 @@ def main():
     except KeyboardInterrupt:
         exit()
 
-    exporter(final_result,args)
+    exporter(final_result)
 
 
 if __name__ == '__main__':
