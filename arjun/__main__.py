@@ -23,6 +23,7 @@ parser.add_argument('-u', help='target url', dest='url')
 parser.add_argument('-o', '-oJ', help='path for json output file', dest='json_file')
 parser.add_argument('-oT', help='path for text output file', dest='text_file')
 parser.add_argument('-oB', help='port for burp suite proxy', dest='burp_port')
+parser.add_argument('-oC', help='output clean urls for piping', dest='out_clean', action='store_true')
 parser.add_argument('-d', help='delay between requests', dest='delay', type=float, default=0)
 parser.add_argument('-t', help='number of threads', dest='threads', type=int, default=2)
 parser.add_argument('-w', help='wordlist path', dest='wordlist', default=arjun_dir+'/db/default.txt')
@@ -38,6 +39,9 @@ parser.add_argument('--include', help='include this data in every request', dest
 args = parser.parse_args() # arguments to be parsed
 
 if args.quiet:
+    print = nullify
+
+if args.out_clean:
     print = nullify
 
 print('''%s    _
@@ -180,10 +184,11 @@ def main():
                     final_result[url]['method'] = each['method']
                     final_result[url]['headers'] = each['headers']
                     print('%s Parameters found: %s' % (good, ', '.join(final_result[url])))
+
     except KeyboardInterrupt:
         exit()
 
-    exporter(final_result)
+    exporter(final_result,args)
 
 
 if __name__ == '__main__':
